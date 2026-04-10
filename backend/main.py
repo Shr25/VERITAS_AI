@@ -26,6 +26,11 @@ app.add_middleware(
     allow_methods=["*"], 
     allow_headers=["*"], 
 ) 
+
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "Veritas AI Backend is successfully running!"}
+
 class Input(BaseModel):
     text: str
 
