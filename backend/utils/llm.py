@@ -4,7 +4,10 @@ import threading
 import requests
 
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    # Adding a simple check so it doesn't fail silently or confusingly
+    print("WARNING: GROQ_API_KEY environment variable is not set!")
 # Using llama-3.1-8b-instant as it is very fast and capable
 MODEL_NAME = "llama-3.1-8b-instant" 
 
